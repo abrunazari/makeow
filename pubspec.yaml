@@ -15,6 +15,8 @@ dependencies:
   meta: ^1.1.8
   http: ^0.12.1
   slimy_card: ^1.0.4
+  equatable: ^2.0.3
+  dartz: ^0.10.0
 
   our_cl:
     git: https://github.com/LeydenJar/our_component_library.git

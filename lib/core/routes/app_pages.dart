@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:programow_flutter_getx_boilerplate/core/bindings/cars_binding.dart';
 // import 'package:programow_flutter_getx_boilerplate/app/bindings/auth_binding.dart';
 import 'package:programow_flutter_getx_boilerplate/core/bindings/details_binding.dart';
 import 'package:programow_flutter_getx_boilerplate/core/bindings/home_binding.dart';
@@ -23,7 +24,8 @@ class AppPages {
         binding: DetailsBinding()),
     GetPage(
         name: Routes.LOGIN, page: () => LoginView(), binding: AuthBinding()),
-    GetPage(name: Routes.CARS, page: () => CarListView()),
+    GetPage(
+        name: Routes.CARS, page: () => CarListView(), binding: CarsBinding()),
     // GetPage(name: Routes.INITIAL, page: () => BrunaView()),
   ];
 }

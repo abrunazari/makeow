@@ -12,6 +12,7 @@ class LoginView extends GetView<AuthController> {
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
+                //TODO - modify this to get theme through getx
                 colors: [Theme.of(context).backgroundColor, Colors.black87],
                 stops: [0.49, 0.55])),
         child: Center(
