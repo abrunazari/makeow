@@ -10,6 +10,7 @@ import 'package:programow_flutter_getx_boilerplate/app/ui/views/home/home_page.d
 
 import 'package:programow_flutter_getx_boilerplate/features/auth/ui/views/login_view.dart';
 import 'package:programow_flutter_getx_boilerplate/features/auth/bindings/auth_binding.dart';
+import 'package:programow_flutter_getx_boilerplate/features/cars/ui/views/car_detail.view.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/ui/views/car_list_view.dart';
 
 part './app_routes.dart';
@@ -26,6 +27,11 @@ class AppPages {
         name: Routes.LOGIN, page: () => LoginView(), binding: AuthBinding()),
     GetPage(
         name: Routes.CARS, page: () => CarListView(), binding: CarsBinding()),
+
+    GetPage(
+        name: Routes.CAR,
+        page: () => CarDetailView(),
+        binding: CarDetailBinding()),
     // GetPage(name: Routes.INITIAL, page: () => BrunaView()),
   ];
 }

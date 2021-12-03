@@ -4,4 +4,5 @@ import 'package:programow_flutter_getx_boilerplate/features/cars/domain/entities
 
 abstract class CarsRepository {
   Future<Either<Failure, List<Car>>> listCars();
+  Future<Either<Failure, Car>> getCar(int id);
 }

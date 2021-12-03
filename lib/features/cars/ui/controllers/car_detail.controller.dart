@@ -5,32 +5,34 @@ import 'package:meta/meta.dart';
 import 'package:programow_flutter_getx_boilerplate/core/errors/failures.dart';
 import 'package:programow_flutter_getx_boilerplate/core/usecase/usecase.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/domain/entities/car.entity.dart';
+import 'package:programow_flutter_getx_boilerplate/features/cars/domain/usecases/get_car.usecase.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/domain/usecases/listCars.usecase.dart';
 
-class CarsController extends GetxController {
-  final ListCarsUsecase listCarsUsecase;
-  CarsController({@required this.listCarsUsecase})
-      : assert(listCarsUsecase != null);
+class CarController extends GetxController {
+  final GetCarUsecase getCarUsecase;
+  CarController({@required this.getCarUsecase}) : assert(getCarUsecase != null);
 
-  List<Car> cars = [];
-  String error = '';
+  Car car;
 
   @override
   void onInit() {
+    print("running init function");
     super.onInit();
-    listCars();
+    print(Get.parameters["carId"]);
+    getCar(int.parse(Get.parameters["carId"]));
+    print("finishing init function");
   }
 
-  listCars() async {
-    Either<Failure, List<Car>> result = await listCarsUsecase.call(NoParams());
+  getCar(int id) async {
+    Either<Failure, Car> result =
+        await getCarUsecase.call(GetCarParams(id: id));
     result.fold((f) {
-      error = 'Couldnt get cars';
+      // error = 'Couldnt get cars';
     }, (result) {
       print(result);
-      cars = result;
+      car = result;
     });
 
     update();
-    print("Finishing");
   }
 }
