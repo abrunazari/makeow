@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:programow_flutter_getx_boilerplate/core/bindings/auth_binding.dart';
 import 'package:programow_flutter_getx_boilerplate/core/bindings/cars_binding.dart';
-import 'package:programow_flutter_getx_boilerplate/features/auth/ui/views/login_view.dart';
+import 'package:programow_flutter_getx_boilerplate/features/auth/ui/views/login.view.dart';
 
 import 'package:programow_flutter_getx_boilerplate/features/cars/ui/views/car_detail.view.dart';
-import 'package:programow_flutter_getx_boilerplate/features/cars/ui/views/car_list_view.dart';
+import 'package:programow_flutter_getx_boilerplate/features/cars/ui/views/car_list.view.dart';
 
 part './app_routes.dart';
 

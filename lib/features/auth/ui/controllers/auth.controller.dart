@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
-import 'package:programow_flutter_getx_boilerplate/features/auth/data/models/user.dart';
-import 'package:programow_flutter_getx_boilerplate/features/auth/data/repositories/user_repository.dart';
+import 'package:programow_flutter_getx_boilerplate/features/auth/domain/entities/user.entity.dart';
+import 'package:programow_flutter_getx_boilerplate/features/auth/domain/usecases/login.usecase.dart';
 
 class AuthController extends GetxController {
-  final UserRepository repository;
-  AuthController({@required this.repository}) : assert(repository != null);
+  final LoginUsecase loginUsecase;
+  AuthController({@required this.loginUsecase}) : assert(loginUsecase != null);
 
   final _user = User().obs;
   get user => this._user.value;
@@ -40,20 +40,18 @@ class AuthController extends GetxController {
   login() {
     print("authenticating");
     if (loginFormKey.currentState.validate()) {
-      repository
-          .login(emailController.text, passwordController.text)
-          .then((auth) {
-        print(auth);
-
-        // passwordController.clear();
-      });
+      loginUsecase
+          .call(LoginParams(
+              email: emailController.text, password: passwordController.text))
+          .then((res) => {print(res)});
     }
-    // return repository.login(user, pass);
-
-    // print('login');
   }
 
   logout() {
     print('logout');
+  }
+
+  register() {
+    print('register');
   }
 }

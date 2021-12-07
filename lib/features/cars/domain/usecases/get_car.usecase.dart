@@ -4,11 +4,12 @@ import 'package:programow_flutter_getx_boilerplate/core/errors/failures.dart';
 import 'package:programow_flutter_getx_boilerplate/core/usecase/usecase.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/domain/entities/car.entity.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/domain/repositories/cars.repository.dart';
+import 'package:meta/meta.dart';
 
 class GetCarUsecase implements UseCase<Car, GetCarParams> {
   final CarsRepository carsRepository;
 
-  GetCarUsecase({this.carsRepository});
+  GetCarUsecase({@required this.carsRepository});
 
   @override
   Future<Either<Failure, Car>> call(GetCarParams params) async {

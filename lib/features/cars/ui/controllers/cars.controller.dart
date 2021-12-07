@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:programow_flutter_getx_boilerplate/core/errors/failures.dart';
 import 'package:programow_flutter_getx_boilerplate/core/usecase/usecase.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/domain/entities/car.entity.dart';
-import 'package:programow_flutter_getx_boilerplate/features/cars/domain/usecases/listCars.usecase.dart';
+import 'package:programow_flutter_getx_boilerplate/features/cars/domain/usecases/list_cars.usecase.dart';
 
 class CarsController extends GetxController {
   final ListCarsUsecase listCarsUsecase;
