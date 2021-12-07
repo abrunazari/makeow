@@ -3,10 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:our_cl/our_cl.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/ui/controllers/cars.controller.dart';
+import 'package:programow_flutter_getx_boilerplate/features/cars/ui/controllers/shared.controller.dart';
 
 class CarListView extends GetView<CarsController> {
   @override
   Widget build(BuildContext context) {
+    var sharedController = Get.put(SharedController());
+
     return OurScaffold(
       navbar: OurResponsiveNavbar(children: [
         Text(
@@ -58,10 +61,9 @@ class CarListView extends GetView<CarsController> {
                     ))),
             OutlinedButton(
                 onPressed: () {
-                  print(controller.cars);
-                  controller.listCars();
+                  sharedController.addCar();
                 },
-                child: Text("List Cars!"))
+                child: Text("Add Car!"))
           ],
         ),
       ),

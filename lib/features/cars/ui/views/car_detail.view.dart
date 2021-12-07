@@ -3,10 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:our_cl/our_cl.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/ui/controllers/car_detail.controller.dart';
+import 'package:programow_flutter_getx_boilerplate/features/cars/ui/controllers/shared.controller.dart';
 
 class CarDetailView extends GetView<CarController> {
   @override
   Widget build(BuildContext context) {
+    var sharedController = Get.put(SharedController());
+
     return OurScaffold(
       navbar: OurResponsiveNavbar(children: [
         Text(
@@ -28,9 +31,23 @@ class CarDetailView extends GetView<CarController> {
       body: Container(
           height: 800,
           color: OurColors.black,
-          child: GetBuilder<CarController>(builder: (cont) {
-            return Text(cont.car.model ?? "Loading...");
-          })),
+          child: Column(
+            children: [
+              GetBuilder<CarController>(builder: (cont) {
+                return Text(cont.car.model ?? "Loading...");
+              }),
+              Container(
+                height: 500,
+                width: 400,
+                child: ListView.builder(
+                    itemCount: sharedController.cars.length,
+                    itemBuilder: (context, index) => ListTile(
+                          tileColor: OurColors.black,
+                          title: Text(sharedController.cars[index].model),
+                        )),
+              )
+            ],
+          )),
     );
   }
 }
