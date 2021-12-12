@@ -7,4 +7,5 @@ abstract class Routes {
   static const BRUNA = '/bruna';
   static const CARS = '/cars';
   static const CAR = '/cars/:carId';
+  static const LISTING = '/listing';
 }

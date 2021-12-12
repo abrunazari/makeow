@@ -5,6 +5,7 @@ import 'package:programow_flutter_getx_boilerplate/features/auth/ui/views/login.
 
 import 'package:programow_flutter_getx_boilerplate/features/cars/ui/views/car_detail.view.dart';
 import 'package:programow_flutter_getx_boilerplate/features/cars/ui/views/car_list.view.dart';
+import 'package:programow_flutter_getx_boilerplate/features/products/ui/listing.view.dart';
 
 part './app_routes.dart';
 
@@ -22,5 +23,6 @@ class AppPages {
         name: Routes.CAR,
         page: () => CarDetailView(),
         binding: CarDetailBinding()),
+        GetPage(name: Routes.LISTING, page: () => ListingView())
   ];
 }
